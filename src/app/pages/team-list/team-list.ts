@@ -17,13 +17,17 @@ export class TeamList {
     this.route.paramMap.subscribe(params => {
       this.conference = params.get('conference') || '';
       this.filterTeams();
-    })
+    });
   }
-  filterTeams(){
+  filterTeams() {
+  if (!this.conference) {
+    this.filteredTeams = this.teams;
+  } else {
     this.filteredTeams = this.teams.filter(
       team => team.conference === this.conference
     );
   }
+}
 
   teams = [
     {
@@ -219,6 +223,5 @@ export class TeamList {
       description: 'AFC West Team'
     }
 ]
-
 
 }
