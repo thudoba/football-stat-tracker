@@ -1,0 +1,30 @@
+.btn-xl {
+  padding: 20px 60px;
+  font-size: 28px;
+  border-radius: 12px;
+}
+.carousel-item img {
+    height: 500px;
+    object-fit: cover; 
+    object-position: center;
+}
+.btn-purple{
+  border-color: #6f42c1;
+  color: #6f42c1;
+  background-color: white;
+}
+.btn-purple:hover{
+  background-color: #6f42c1;
+  color: white;
+  border: #6f42c1;
+}
+.btn-superbowl{
+  border-color: #002244;
+  color: #002244;
+  background-color: white;
+}
+.btn-superbowl:hover{
+  background-color: #002244;
+  color: #69BE28;
+  border: #002244;
+}
