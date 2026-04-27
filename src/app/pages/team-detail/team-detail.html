@@ -1,0 +1,10 @@
+@if (team) {
+  <div class="container mt-4 text-center text-black">
+    <h1>{{ team.name }}</h1>
+    <p>{{ team.description }}</p>
+  </div>
+} @else {
+  <div class="text-center mt-4 text-black">
+    <h3>Team not found</h3>
+  </div>
+}

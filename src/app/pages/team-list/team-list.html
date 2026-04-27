@@ -28,7 +28,7 @@
             <p class="card-text">{{ team.description }}</p>
 
             <a class="btn btn-primary"
-               [routerLink]="['/teams', team.name.toLowerCase().replace(' ', '-')]">
+               [routerLink]="['/teams', team.name.toLowerCase().split(' ').join('-')]">
               View Team
             </a>
           </div>
