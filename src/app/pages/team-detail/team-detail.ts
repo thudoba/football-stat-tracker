@@ -33,21 +33,21 @@ export class TeamDetail implements OnInit{
       conference: 'nfc',
       logo: 'images/bears.jpg',
       description: 'An NFC North team that finished the 2025 season 11-6 ranking 1st in their division. The Chicago Bears were established in 1919, they have 1 Super Bowl. Some notable players include Walter Payton, Mike Ditka, Brian Urlacher, Dick Butkus, and Gale Sayers.',
-      schedule: 'https://www.bears.com/schedule/'
+      schedule: 'https://www.chicagobears.com/schedule/'
     },
     {
       name: 'Detroit Lions', 
       conference: 'nfc',
       logo: 'images/lions.webp',
       description: 'An NFC North team that finished the 2025 season 9-8 ranking 4th in their division. The Detroit Lions were established in 1930, they have 0 Super Bowls. Some notable players include Barry Sanders, Calvin Johnson, Matthew Stafford, Dick Lane, and Joe Schmidt.',
-      schedule: 'https://www.lions.com/schedule/'
+      schedule: 'https://www.detroitlions.com/schedule/'
     },
     {
       name: 'Philadelphia Eagles', 
       conference: 'nfc',
       logo: 'images/eagles.webp',
       description: 'An NFC East team that finished the 2025 season 11-6 ranking 1st in their division. The Philadelphia Eagles were established in 1933, they have 1 Super Bowl. Some notable players include Reggie White, Brian Dawkins, Donovan McNabb, Chuck Bednarik, and Jason Kelce.',
-      schedule: 'https://www.eagles.com/schedule/'
+      schedule: 'https://www.philadelphiaeagles.com/schedule/'
     },
     {
       name: 'Dallas Cowboys', 
@@ -75,7 +75,7 @@ export class TeamDetail implements OnInit{
       conference: 'nfc',
       logo: 'images/falcons.jpg',
       description: 'An NFC South team that finished the 2025 season 8-9 ranking 3rd in their division. The Atlanta Falcons were established in 1965, they have 0 Super Bowls. Some notable players include Matt Ryan, Julio Jones, Deion Sanders, Michael Vick, and Roddy White.',
-      schedule: 'https://www.falcos.com/schedule/'
+      schedule: 'https://www.atlantafalcons.com/schedule/'
     },
      {
       name: 'New Orlean Saints', 
@@ -124,7 +124,7 @@ export class TeamDetail implements OnInit{
       conference: 'nfc',
       logo: 'images/cardinals.jpg',
       description: 'An NFC West team that finished the 2025 season 3-14 ranking 4th in their division. The Arizona Cardinals were established in 1898, they have 0 Super Bowls. Some notable players include Larry Fitzgerald, Kurt Warner, Emmitt Smith, Aeneas Williams, and Patrick Peterson.',
-      schedule: 'https://www.cardinals.com/schedule/'
+      schedule: 'https://www.azcardinals.com/schedule/'
     },
     {
       name: 'Pittsburg Steelers', 
@@ -138,7 +138,7 @@ export class TeamDetail implements OnInit{
       conference: 'afc',
       logo: 'images/browns.jpg',
       description: 'An AFC North team that finished the 2025 season 5-12 ranking 4th in their division. The Cleveland Browns were established in 1946, they have 0 Super Bowls. Some notable players include Jim Brown, Otto Graham, Joe Thomas, Ozzie Newsome, and Nick Chubb.',
-      schedule: 'https://www.browns.com/schedule/'
+      schedule: 'https://www.clevelandbrowns.com/schedule/'
     },
       {
       name: 'Cincinatti Bengals', 
@@ -152,7 +152,7 @@ export class TeamDetail implements OnInit{
       conference: 'afc',
       logo: 'images/ravens.jpg',
       description: 'An AFC North team that finished the 2025 season 8-9 ranking 2nd in their division. The Baltimore Ravens were established in 1996, they have 2 Super Bowls. Some notable players include Ray Lewis, Ed Reed, Jonathan Ogden, Lamar Jackson, and Terrell Suggs.',
-      schedule: 'https://www.ravens.com/schedule/'
+      schedule: 'https://www.baltimoreravens.com/schedule/'
     },
       {
       name: 'Buffalo Bills', 
