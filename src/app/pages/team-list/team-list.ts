@@ -24,7 +24,7 @@ export class TeamList {
     this.filteredTeams = this.teams;
   } else {
     this.filteredTeams = this.teams.filter(
-      team => team.conference === this.conference
+      team => team.conference.toLowerCase() === this.conference.toLowerCase()
     );
   }
 }
@@ -109,7 +109,7 @@ export class TeamList {
       description: 'NFC West Team'
     },
      {
-      name: 'Los Angelos Rams', 
+      name: 'Los Angeles Rams', 
       conference: 'nfc',
       logo: 'images/rams.webp',
       description: 'NFC West Team'
@@ -205,7 +205,7 @@ export class TeamList {
       description: 'AFC West Team'
     },
      {
-      name: 'Los Angelos Chargers', 
+      name: 'Los Angeles Chargers', 
       conference: 'afc',
       logo: 'images/chargers.webp',
       description: 'AFC West Team'

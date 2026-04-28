@@ -93,7 +93,7 @@ export class TeamDetail implements OnInit{
       description: 'NFC West Team'
     },
      {
-      name: 'Los Angelos Rams', 
+      name: 'Los Angeles Rams', 
       conference: 'nfc',
       logo: 'images/rams.webp',
       description: 'NFC West Team'
@@ -189,7 +189,7 @@ export class TeamDetail implements OnInit{
       description: 'AFC West Team'
     },
      {
-      name: 'Los Angelos Chargers', 
+      name: 'Los Angeles Chargers', 
       conference: 'afc',
       logo: 'images/chargers.webp',
       description: 'AFC West Team'

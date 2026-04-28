@@ -8,7 +8,6 @@ export const routes: Routes = [
     {path: '', component: Dashboard}, 
     {path: 'games', component: GameList},
     {path: 'teams', component: TeamList},
-    {path: 'teams/nfc', component: TeamList },
-    {path: 'teams/afc', component: TeamList },
+    {path: 'teams/conference/:conference', component: TeamList },
     {path: 'teams/:team', component: TeamDetail }
 ];
