@@ -1,20 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Data } from '../../services/data';
+import { Injectable } from '@angular/core';
 
-
-@Component({
-  selector: 'app-team-detail',
-  imports: [CommonModule],
-  templateUrl: './team-detail.html',
-  styleUrl: './team-detail.css',
+@Injectable({
+  providedIn: 'root',
 })
-export class TeamDetail implements OnInit{
-
-  team: any;
-
- teams = [
+export class Data {
+    teams = [
     {
       name: 'Minnesota Vikings', 
       conference: 'nfc',
@@ -241,23 +231,13 @@ export class TeamDetail implements OnInit{
     }
 ]
 
-  constructor(
-    private route: ActivatedRoute,
-    private data: Data
-  ) {}
+  getTeams() {
+    return this.teams;
+  }
 
-  ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      const teamParam = params.get('team');
-
-      
-
-      this.team = this.teams.find(t => 
-        t.name.toLowerCase().split(' ').join('-') === teamParam
-      );
-    });
-    const teamName = this.route.snapshot.paramMap.get('team');
-
-    this.team = this.data.getTeamByName(teamName || '');
+  getTeamByName(name: string) {
+    return this.teams.find(t =>
+      t.name.toLowerCase() === name.toLowerCase()
+    );
   }
 }

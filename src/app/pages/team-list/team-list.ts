@@ -127,7 +127,7 @@ export class TeamList {
       description: 'NFC West Team'
     },
     {
-      name: 'Pittsburg Steelers', 
+      name: 'Pittsburgh Steelers', 
       conference: 'afc',
       logo: 'images/steelers.webp',
       description: 'AFC North Team'
