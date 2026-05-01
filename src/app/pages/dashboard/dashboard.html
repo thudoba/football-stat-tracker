@@ -1,75 +1,90 @@
-<div class="container mt-4 text-center">
+<div class="container-fluid">
+  <div class="container mt-4 text-center">
+    <div class="d-flex justify-content-center gap-4 mb-4">
+      <button class="btn btn-dark btn-xl" routerLink="/teams">NFL Teams</button>
+    </div>
+  </div>
+  <div
+    id="dashboardcarousel"
+    class="carousel slide mx-auto"
+    style="max-width: 800px"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img
+          src="images/JustinJefferson.jpeg"
+          class="d-block w-100 mx-auto"
+          alt="Justin Jefferson"
+        />
+      </div>
 
-  <div class="d-flex justify-content-center gap-4 mb-4">
-    <button class="btn btn-dark btn-xl" routerLink="/teams">NFL Teams</button>
+      <div class="carousel-item">
+        <img src="images/DanielleHunter.jpg" class="d-block w-100 mx-auto" alt="Danielle Hunter" />
+      </div>
+
+      <div class="carousel-item">
+        <img src="images/CamBynum.jpg" class="d-block w-100 mx-auto" alt="Cam Bynum" />
+      </div>
+
+      <div class="carousel-item">
+        <img src="images/DJWonnum.jpg" class="d-block w-100 mx-auto" alt="DJ Wonnum" />
+      </div>
+
+      <div class="carousel-item">
+        <img
+          src="images/GarrettBradbury.jpg"
+          class="d-block w-100 mx-auto"
+          alt="Garrett Bradbury"
+        />
+      </div>
+
+      <div class="carousel-item">
+        <img src="images/Jon Gruden.jpg" class="d-block w-100 mx-auto" alt="Jon Gruden" />
+      </div>
+
+      <div class="carousel-item">
+        <img src="images/SamDarnold.webp" class="d-block w-100 mx-auto" alt="Sam Darnold" />
+      </div>
+    </div>
+
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#dashboardcarousel"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#dashboardcarousel"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
 
-    </div>
-    <div id="dashboardcarousel" class="carousel slide mx-auto" style="max-width: 800px;" data-bs-ride="carousel">
-  
-  <div class="carousel-inner">
-    
-    <div class="carousel-item active">
-      <img src="images/JustinJefferson.jpeg" class="d-block w-100 mx-auto" alt="Justin Jefferson">
-    </div>
-
-    <div class="carousel-item">
-      <img src="images/DanielleHunter.jpg" class="d-block w-100 mx-auto" alt="Danielle Hunter">
-    </div>
-
-    <div class="carousel-item">
-      <img src="images/CamBynum.jpg" class="d-block w-100 mx-auto" alt="Cam Bynum">
-    </div>
-
-    <div class="carousel-item">
-      <img src="images/DJWonnum.jpg" class="d-block w-100 mx-auto" alt="DJ Wonnum">
-    </div>
-
-    <div class="carousel-item">
-      <img src="images/GarrettBradbury.jpg" class="d-block w-100 mx-auto" alt="Garrett Bradbury">
-    </div>
-
-    <div class="carousel-item">
-      <img src="images/Jon Gruden.jpg" class="d-block w-100 mx-auto" alt="Jon Gruden">
-    </div>
-
-    <div class="carousel-item">
-      <img src="images/SamDarnold.webp" class="d-block w-100 mx-auto" alt="Sam Darnold">
-    </div>
-
-
-  </div>
-
-  <button class="carousel-control-prev" type="button" data-bs-target="#dashboardcarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#dashboardcarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-
-</div>
-
-<div class="row text-center g-3 mt-4">
+  <div class="row text-center g-3 mt-4">
     <div class="col-md-4">
-        <a class="btn btn-superbowl w-100 py-4" routerLink="/game/1">
-            2026 Superbowl 60: Seahawks vs. Patriots
-        </a>
+      <a class="btn btn-superbowl w-100 py-4" routerLink="/game/1">
+        2026 Superbowl 60: Seahawks vs. Patriots
+      </a>
     </div>
 
+    <div class="col-md-4">
+      <a class="btn btn-purple w-100 py-4" routerLink="/teams/minnesota-vikings">
+        Vikings Team Stats
+      </a>
+    </div>
 
-<div class="col-md-4">
-<a class="btn btn-purple w-100 py-4" routerLink="/teams/minnesota-vikings">
-    Vikings Team Stats
-</a>
-</div>
-
-<div class="col-md-4">
-    <a class="btn btn-outline-warning w-100 py-4" routerLink="/game/2">
+    <div class="col-md-4">
+      <a class="btn btn-outline-warning w-100 py-4" routerLink="/game/2">
         Vikings vs Packers 2026
-    </a>
+      </a>
+    </div>
+  </div>
 </div>
-</div>
-
-
