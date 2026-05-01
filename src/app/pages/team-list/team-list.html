@@ -15,27 +15,37 @@
     NFC Teams
   }
 </h2>
+<div class="container mb-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <input 
+        type="text" 
+        class="form-control form-control-lg" 
+        placeholder="Search for a team (e.g. Vikings)..."
+        (input)="onSearchChange($event)"
+      >
+    </div>
+  </div>
+</div>
+
 <div class="container mt-4">
   <div class="row">
-    @for (team of filteredTeams; track team.name) {
-      <div class="col-md-4 col-lg-3 mb-4">
-
-        <div class="card h-100 text-center">
-          <img [src]="team.logo" class="card-img-top p-3" alt="{{ team.name }}">
-
-          <div class="card-body">
-            <h5 class="card-title">{{ team.name }}</h5>
-            <p class="card-text">{{ team.division }}</p>
-
-            <a class="btn btn-primary"
-               [routerLink]="['/teams', team.name.toLowerCase().split(' ').join('-')]">
-              View Team
-            </a>
-          </div>
-        </div>
-
+    @for (team of filteredTeams; track team.id) {
+       <!-- Your existing card code remains exactly the same -->
+       <div class="col-md-4 col-lg-3 mb-4">
+         <div class="card h-100 text-center">
+           <img [src]="team.logo" class="card-img-top p-3" [alt]="team.teamName || team.name">
+           <div class="card-body">
+             <h5 class="card-title">{{ team.teamName || team.name }}</h5>
+             <p class="card-text text-muted">{{ team.division }}</p>
+             <a class="btn btn-primary" [routerLink]="['/teams', team.id]">View Team</a>
+           </div>
+         </div>
+       </div>
+    } @empty {
+      <div class="col-12 text-center text-white">
+        <h3>No teams found matching "{{ searchTerm }}"</h3>
       </div>
     }
-
   </div>
 </div>

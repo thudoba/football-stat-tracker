@@ -1,11 +1,24 @@
-@if (team) {
+<!-- @if (team) {
   <div class="container mt-4 text-center text-black">
-    <h1>{{ team.name }}</h1>
+    <h1>{{ team.teamName }}</h1>
     <img [src]=team.logo [alt]="team.name" class="img-fluid my-3" style="max-width: 1000px;">
     <h5>{{ team.description }}</h5>
         <a href="{{ team.schedule }}" target="_blank" rel="noopener noreferrer" class="btn btn-info btn-lg">View 2025 Schedule</a>
   </div>
-} @else {
+} -->
+@if (team) {
+  <div class="container mt-4 text-center text-black">
+
+    <h1>{{ team.teamName}}</h1> 
+    
+    <img [src]="team.logo" [alt]="team.teamName" class="img-fluid my-3" style="max-width: 1000px;">
+    
+    <h5>{{ team.description }}</h5>
+    
+    <a [href]="team.schedule" target="_blank" class="btn btn-info btn-lg">View 2025 Schedule</a>
+  </div>
+}
+@else {
   <div class="text-center mt-4 text-black">
     <h3>Team not found</h3>
   </div>

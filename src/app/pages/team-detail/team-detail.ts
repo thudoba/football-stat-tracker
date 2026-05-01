@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Data } from '../../services/data';
 
@@ -12,20 +12,23 @@ import { Data } from '../../services/data';
 })
 export class TeamDetail implements OnInit{
 
+teams: any[] = [];
   team: any;
-
-
 
   constructor(
     private route: ActivatedRoute,
-    private data: Data
+    private data: Data,
+    private cdr: ChangeDetectorRef
   ) {}
 
-  ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      const teamParam = params.get('team');
-      this.team = this.data.getTeamByName(teamParam || '');
-    });
+async ngOnInit() {
+  const id = this.route.snapshot.paramMap.get('id');
+  if (id) {
+    this.team = await this.data.getTeamById(id);
+    
+    this.cdr.detectChanges(); 
+  }
 }
+  
 }
 

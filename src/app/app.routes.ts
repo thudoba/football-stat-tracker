@@ -9,5 +9,5 @@ export const routes: Routes = [
     {path: 'games', component: GameList},
     {path: 'teams', component: TeamList},
     {path: 'teams/conference/:conference', component: TeamList },
-    {path: 'teams/:team', component: TeamDetail }
+    { path: 'teams/:id', component: TeamDetail }
 ];
