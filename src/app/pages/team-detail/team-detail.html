@@ -1,11 +1,3 @@
-<!-- @if (team) {
-  <div class="container mt-4 text-center text-black">
-    <h1>{{ team.teamName }}</h1>
-    <img [src]=team.logo [alt]="team.name" class="img-fluid my-3" style="max-width: 1000px;">
-    <h5>{{ team.description }}</h5>
-        <a href="{{ team.schedule }}" target="_blank" rel="noopener noreferrer" class="btn btn-info btn-lg">View 2025 Schedule</a>
-  </div>
-} -->
 @if (team) {
   <div class="container mt-4 text-center text-black">
 
@@ -14,6 +6,48 @@
     <img [src]="team.logo" [alt]="team.teamName" class="img-fluid my-3" style="max-width: 1000px;">
     
     <h5>{{ team.description }}</h5>
+
+    <h3>2025 Team Stats</h3>
+    <table class="table table-striped-columns">
+  <thead>
+    <tr>
+      <th scope="col">Tot Yds</th>
+      <th scope="col">Ply</th>
+      <th scope="col">Y/P</th>
+      <th scope="col">Cmp</th>
+      <th scope="col">P Att</th>
+      <th scope="col">Cmp%</th>
+      <th scope="col">P Yds</th>
+      <th scope="col">P Y/A</th>
+      <th scope="col">P TD</th>
+      <th scope="col">Int</th>
+      <th scope="col">R Att</th>
+      <th scope="col">R Yds</th>
+      <th scope="col">Y/A</th>
+      <th scope="col">R TD</th>
+      
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr>
+      <td>{{ team.totYds }}</td>
+      <td>{{ team.ply }}</td>
+      <td>{{ (team.totYds / team.ply) | number:'1.1-2' }}</td>
+      <td>{{ team.cmp }}</td>
+      <td>{{ team.patt }}</td>
+      <td>{{ (team.cmp / team.patt * 100) | number:'1.0-1' }}%</td>
+      <td>{{ team.pyds }}</td>
+      <td>{{ (team.pyds / team.patt) | number:'1.1-2' }}</td>
+      <td>{{ team.ptds }}</td>
+      <td>{{ team.int }}</td>
+      <td>{{ team.ratt }}</td>
+      <td>{{ team.ryds }}</td>
+      <td>{{ (team.ryds / team.ratt) | number: '1.1-2' }}</td>
+      <td>{{ team.rtds }}</td>
+      
+    </tr>
+  </tbody>
+</table>
     
     <a [href]="team.schedule" target="_blank" class="btn btn-info btn-lg">View 2025 Schedule</a>
   </div>
