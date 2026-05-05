@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { collection, getDocs, doc, getDoc, addDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, getDoc, addDoc, Firestore, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase.config';
 
 export interface Team {
@@ -345,4 +345,12 @@ export class Data {
   }
   alert('All teams seeded successfully!');
 }
+
+async getGames() {
+  const snapshot = await getDocs(collection(db, 'games'));
+    return snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    })) as any[];
+  }
 }
