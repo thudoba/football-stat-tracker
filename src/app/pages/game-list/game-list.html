@@ -9,7 +9,7 @@
          <div class="card h-100 text-center">
            <!-- <img [src]="team.logo" class="card-img-top p-3" [alt]="team.teamName || team.name"> -->
            <div class="card-body">
-             <h5 class="card-title">{{game.awayTeamId}} @ {{game.homeTeamId}}</h5>
+             <h5 class="card-title">{{gameStrings().find((value) => value.game == game)?.string}}</h5>
              <!-- <p class="card-text text-muted">{{ team.division }}</p> -->
              <a class="btn btn-primary" [routerLink]="['/games', game.id]">View Game</a>
            </div>

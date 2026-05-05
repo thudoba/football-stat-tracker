@@ -4,7 +4,7 @@ import { db } from '../firebase.config';
 
 export interface Team {
   id: string
-  teamName: string;
+  name: string;
   conference: 'NFC' | 'AFC';
   division: string;
   description: string;
@@ -334,7 +334,7 @@ export class Data {
     return snapshot.docs.map(doc => ({
       id: doc.id,
       ...doc.data()
-    })) as any[];
+    })) as Team[];
   }
 
   async getGames() {
@@ -345,13 +345,14 @@ export class Data {
     })) as Game[];
   }
 
- async getTeamById(id: string) {
+ async getTeamById(id: string){
     const docRef = doc(db, 'teams', id);
     const snap = await getDoc(docRef);
     if (!snap.exists()) return null;
-    return { id: snap.id, ...snap.data() };
+    return { id: snap.id, ...snap.data() } as Team;
   }
-  async seedData() {
+
+async seedData() {
   const teamsCollection = collection(db, 'teams');
   
   for (const team of this.teams) {
