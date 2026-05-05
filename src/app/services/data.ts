@@ -3,7 +3,8 @@ import { collection, getDocs, doc, getDoc, addDoc, Firestore, updateDoc } from '
 import { db } from '../firebase.config';
 
 export interface Team {
-  teamName: string;
+  id: string
+  name: string;
   conference: 'NFC' | 'AFC';
   division: string;
   description: string;
@@ -13,7 +14,21 @@ export interface Team {
   //put stats fields here
 }
 
-export interface Game {}
+export interface Game {
+  id: string;
+  homeTeamId: string;
+  awayTeamId: string;
+  week: number;
+  gameDate: string;
+  isCompleted: boolean;
+
+  homeTeam?: string;
+  awayTeam?: string;
+  homeTeamLogo?: string;
+  awayTeamLogo?: string;
+  homeScore?: number;
+  awayScore?: number;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -324,15 +339,18 @@ export class Data {
     return snapshot.docs.map(doc => ({
       id: doc.id,
       ...doc.data()
-    })) as any[];
+    })) as Team[];
   }
- async getTeamById(id: string) {
+
+
+ async getTeamById(id: string){
     const docRef = doc(db, 'teams', id);
     const snap = await getDoc(docRef);
     if (!snap.exists()) return null;
-    return { id: snap.id, ...snap.data() };
+    return { id: snap.id, ...snap.data() } as Team;
   }
-  async seedData() {
+
+async seedData() {
   const teamsCollection = collection(db, 'teams');
   
   for (const team of this.teams) {

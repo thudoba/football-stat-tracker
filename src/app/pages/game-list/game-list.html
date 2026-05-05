@@ -10,14 +10,14 @@
         placeholder="Search for a team (e.g. Vikings)..."
         (input)="onSearchChange($event)"
       >
-      @if (filteredGames.length === 0) {
+      @if (filteredGames().length === 0) {
   <p class="text-center mt-3">No games found</p>
         }
     </div>
   </div>
 </div>
 <div class="container-fluid mt-4">
-  @for (game of filteredGames; track game.id){
+  @for (game of filteredGames(); track game.id){
 
     <div class="row align-items-center text-center bg-light rounded shadow-sm py-3 mb-3">
 
@@ -48,7 +48,6 @@
         </a>
       </div>
 
-      <!-- ✈️ AWAY TEAM (RIGHT) -->
       <div class="col-md-4 d-flex align-items-center justify-content-end">
         <div class="text-end me-3">
           <h5 class="mb-0">{{ game.awayTeam }}</h5>
