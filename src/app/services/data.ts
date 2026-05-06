@@ -371,4 +371,14 @@ async getGames() {
       ...doc.data()
     })) as any[];
   }
+  async getGameById(id: string) {
+  const snap = await getDoc(doc(db, 'games', id));
+
+  if (!snap.exists()) return null;
+
+  return {
+    id: snap.id,
+    ...snap.data()
+  } as any;
+}
 }
