@@ -8,14 +8,14 @@ import { RouterLink, RouterModule, ActivatedRoute } from "@angular/router";
   templateUrl: './game-list.html',
   styleUrl: './game-list.css',
 })
+
 export class GameList implements OnInit {
-  
+
   games = signal<Game[]>([]);
   filteredGames = signal<Game[]>([]);
-  filteredTeams = signal<Team[]>([]);
   teams = signal<Team[]>([]);
+  filteredTeams = signal<Team[]>([]);
   gameStrings = signal<{ game: Game; string: string }[]>([]);
-  
 
   searchTerm: string = '';
   conference: string = '';
@@ -24,7 +24,7 @@ export class GameList implements OnInit {
   private cdr = inject(ChangeDetectorRef);
 
   async ngOnInit() {
-  
+
     const allGames = await this.dataService.getGames();
     this.games.set(allGames);
     this.filteredGames.set(allGames);
@@ -34,6 +34,7 @@ export class GameList implements OnInit {
       if (game.awayTeamId && game.homeTeamId) {
         const away = await this.dataService.getTeamById(game.awayTeamId);
         const home = await this.dataService.getTeamById(game.homeTeamId);
+
         arr.push({
           game: game,
           string: `${away?.name ?? 'Unknown'} @ ${home?.name ?? 'Unknown'}`
@@ -41,32 +42,37 @@ export class GameList implements OnInit {
       }
     }
     this.gameStrings.set(arr);
-    
 
     this.cdr.detectChanges();
   }
 
-  onSearchChange(event: any) {
-  this.searchTerm = event.target.value.toLowerCase();
 
-  if (!this.searchTerm.trim()) {
-    this.filteredGames.set(this.games());
-    return;
+  onSearchChange(event: any) {
+    const term = event.target.value.toLowerCase().trim();
+    this.searchTerm = term;
+
+    if (!term) {
+      this.filteredGames.set(this.games());
+      return;
+    }
+
+    const filtered = this.games().filter(game => {
+      const homeName = game.homeTeam?.toLowerCase() ?? '';
+      const awayName = game.awayTeam?.toLowerCase() ?? '';
+      const weekStr = game.week?.toString() ?? '';
+
+      return (
+        homeName.includes(term) ||
+        awayName.includes(term) ||
+        weekStr.includes(term) ||       
+        `week ${weekStr}`.includes(term) 
+      );
+    });
+
+    this.filteredGames.set(filtered);
   }
 
-  const filtered = this.games().filter(game => {
-    const homeName = game.homeTeam?.toLowerCase() ?? '';
-    const awayName = game.awayTeam?.toLowerCase() ?? '';
-    
-    return homeName.includes(this.searchTerm) || 
-           awayName.includes(this.searchTerm);
-  });
-
-  this.filteredGames.set(filtered);
-}
-
   filterTeams() {
-
     let results = this.teams();
 
     if (this.conference) {
@@ -77,12 +83,11 @@ export class GameList implements OnInit {
 
     if (this.searchTerm.trim()) {
       const search = this.searchTerm.toLowerCase();
+
       results = results.filter(t =>
-        (t.name?.toLowerCase().includes(search)) ||
-        (t.name?.toLowerCase().includes(search))
+        t.name?.toLowerCase().includes(search)
       );
     }
-
 
     this.filteredTeams.set(results);
   }
