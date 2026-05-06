@@ -3,11 +3,13 @@ import { Dashboard } from './pages/dashboard/dashboard';
 import { GameList } from './pages/game-list/game-list';
 import { TeamList } from './pages/team-list/team-list';
 import { TeamDetail } from './pages/team-detail/team-detail';
+import { GameDetail } from './pages/game-detail/game-detail';
 
 export const routes: Routes = [
     {path: '', component: Dashboard}, 
     {path: 'games', component: GameList},
     {path: 'teams', component: TeamList},
     {path: 'teams/conference/:conference', component: TeamList },
-    { path: 'teams/:id', component: TeamDetail }
+    { path: 'teams/:id', component: TeamDetail },
+    {path: 'games/:id', component: GameDetail}
 ];

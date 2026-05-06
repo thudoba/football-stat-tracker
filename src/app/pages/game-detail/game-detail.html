@@ -4,6 +4,7 @@
 
     <!-- 🏠 HOME TEAM -->
     <h2 class="mb-3">{{ game.homeTeam }}</h2>
+    
 
     <table class="table table-striped-columns">
   <thead>
@@ -46,10 +47,10 @@
   </tbody>
 </table>
 
-    <!-- 🏆 SCORE (CENTER) -->
+    
     <div class="my-5">
       <h1 class="display-1 fw-bold">
-        {{ game.homeScore }} - {{ game.awayScore }}
+        <img [src]="game.homeTeamLogo" alt="{{ game.homeTeam }}" style="width: 60px; height: 60px;" class="me-3">{{ game.homeScore }} - {{ game.awayScore }} <img [src]="game.awayTeamLogo" alt="{{ game.awayTeam }}" style="width: 60px; height: 60px;">
       </h1>
 
       <p class="text-muted">
@@ -57,8 +58,9 @@
       </p>
     </div>
 
-    <!-- ✈️ AWAY TEAM -->
+   
     <h2 class="mb-3">{{ game.awayTeam }}</h2>
+    
 
     <table class="table table-striped-columns">
   <thead>
