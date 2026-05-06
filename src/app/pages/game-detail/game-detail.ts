@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Data } from '../../services/data';
 import { CommonModule } from '@angular/common';
@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class GameDetail {
   game: any;
+  private cdr = inject(ChangeDetectorRef);
 
   constructor(
     private route: ActivatedRoute,
@@ -21,5 +22,7 @@ export class GameDetail {
     const id = this.route.snapshot.paramMap.get('id');
 
     this.game = await this.data.getGameById(id || '');
+    this.cdr.detectChanges();
+
   }
 }
