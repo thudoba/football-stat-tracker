@@ -143,15 +143,15 @@ export class Data {
     //   schedule: 'https://www.panthers.com/schedule/',
     //   division: 'NFC South',
     // },
-    // {
-    //   name: 'Seattle Seahawks',
-    //   conference: 'nfc',
-    //   logo: 'images/seahawks.webp',
-    //   description:
-    //     'An NFC West team that finished the 2025 season 14-3 ranking 1st in their division. The Seattle Seahawks were established in 1976, they have 2 Super Bowls and are your reigning Super Bowl Champions. Some notable players include Russell Wilson, Steve Largent, Walter Jones, Richard Sherman, and Marshawn Lynch.',
-    //   schedule: 'https://www.seahawks.com/schedule/',
-    //   division: 'NFC West',
-    // },
+    {
+      name: 'Seattle Seahawks',
+      conference: 'nfc',
+      logo: 'images/seahawks.webp',
+      description:
+        'An NFC West team that finished the 2025 season 14-3 ranking 1st in their division. The Seattle Seahawks were established in 1976, they have 2 Super Bowls and are your reigning Super Bowl Champions. Some notable players include Russell Wilson, Steve Largent, Walter Jones, Richard Sherman, and Marshawn Lynch.',
+      schedule: 'https://www.seahawks.com/schedule/',
+      division: 'NFC West',
+    },
     {
       name: 'Los Angeles Rams',
       conference: 'nfc',
@@ -161,15 +161,15 @@ export class Data {
       schedule: 'https://www.rams.com/schedule/',
       division: 'NFC West',
     },
-    // {
-    //   name: 'San Francisco 49ers',
-    //   conference: 'nfc',
-    //   logo: 'images/49ers.webp',
-    //   description:
-    //     'An NFC West team that finished the 2025 season 12-5 ranking 3rd in their division. The San Francisco 49ers were established in 1946, they have 5 Super Bowls. Some notable players include Joe Montana, Jerry Rice, Steve Young, Ronnie Lott, and Frank Gore.',
-    //   schedule: 'https://www.49ers.com/schedule/',
-    //   division: 'NFC West',
-    // },
+    {
+      name: 'San Francisco 49ers',
+      conference: 'nfc',
+      logo: 'images/49ers.webp',
+      description:
+        'An NFC West team that finished the 2025 season 12-5 ranking 3rd in their division. The San Francisco 49ers were established in 1946, they have 5 Super Bowls. Some notable players include Joe Montana, Jerry Rice, Steve Young, Ronnie Lott, and Frank Gore.',
+      schedule: 'https://www.49ers.com/schedule/',
+      division: 'NFC West',
+    },
     // {
     //   name: 'Arizona Cardinals',
     //   conference: 'nfc',
@@ -296,15 +296,15 @@ export class Data {
     //   schedule: 'https://www.chiefs.com/schedule/',
     //   division: 'AFC West',
     // },
-    // {
-    //   name: 'Los Angeles Chargers',
-    //   conference: 'afc',
-    //   logo: 'images/chargers.webp',
-    //   description:
-    //     'An AFC West team that finished the 2025 season 11-6 ranking 2nd in their division. The Los Angeles Chargers were established in 1960, they have 0 Super Bowls. Some notable players include LaDainian Tomlinson, Philip Rivers, Junior Seau, Kellen Winslow, and Antonio Gates.',
-    //   schedule: 'https://www.chargers.com/schedule/',
-    //   division: 'AFC West',
-    // },
+    {
+      name: 'Los Angeles Chargers',
+      conference: 'afc',
+      logo: 'images/chargers.webp',
+      description:
+        'An AFC West team that finished the 2025 season 11-6 ranking 2nd in their division. The Los Angeles Chargers were established in 1960, they have 0 Super Bowls. Some notable players include LaDainian Tomlinson, Philip Rivers, Junior Seau, Kellen Winslow, and Antonio Gates.',
+      schedule: 'https://www.chargers.com/schedule/',
+      division: 'AFC West',
+    },
     // {
     //   name: 'Denver Broncos',
     //   conference: 'afc',
@@ -314,15 +314,15 @@ export class Data {
     //   schedule: 'https://www.denverbroncos.com/schedule/',
     //   division: 'AFC West',
     // },
-    // {
-    //   name: 'Las Vegas Raiders',
-    //   conference: 'afc',
-    //   logo: 'images/raiders.jpg',
-    //   description:
-    //     'An AFC West team that finished the 2025 season 3-14 ranking 4th in their division. The Las Vegas Raiders were established in 1960, they have 3 Super Bowls. Some notable players include Bo Jackson, Marcus Allen, Howie Long, Ken Stabler, and Tim Brown.',
-    //   schedule: 'https://www.raiders.com/schedule/',
-    //   division: 'AFC West',
-    // },
+    {
+      name: 'Las Vegas Raiders',
+      conference: 'afc',
+      logo: 'images/raiders.jpg',
+      description:
+        'An AFC West team that finished the 2025 season 3-14 ranking 4th in their division. The Las Vegas Raiders were established in 1960, they have 3 Super Bowls. Some notable players include Bo Jackson, Marcus Allen, Howie Long, Ken Stabler, and Tim Brown.',
+      schedule: 'https://www.raiders.com/schedule/',
+      division: 'AFC West',
+    },
   ];
 
   // getTeamsByConference(conference: string) {
