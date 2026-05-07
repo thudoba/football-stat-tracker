@@ -3,7 +3,7 @@ import { collection, getDocs, doc, getDoc, addDoc, Firestore, updateDoc } from '
 import { db } from '../firebase.config';
 
 export interface Team {
-  id: string
+  id: string;
   name: string;
   conference: 'NFC' | 'AFC';
   division: string;
@@ -107,15 +107,15 @@ export class Data {
     //   schedule: 'https://www.giants.com/schedule/',
     //   division: 'NFC East',
     // },
-    // {
-    //   name: 'Atlanta Falcons',
-    //   conference: 'nfc',
-    //   logo: 'images/falcons.jpg',
-    //   description:
-    //     'An NFC South team that finished the 2025 season 8-9 ranking 3rd in their division. The Atlanta Falcons were established in 1965, they have 0 Super Bowls. Some notable players include Matt Ryan, Julio Jones, Deion Sanders, Michael Vick, and Roddy White.',
-    //   schedule: 'https://www.atlantafalcons.com/schedule/',
-    //   division: 'NFC South',
-    // },
+    {
+      name: 'Atlanta Falcons',
+      conference: 'nfc',
+      logo: 'images/falcons.jpg',
+      description:
+        'An NFC South team that finished the 2025 season 8-9 ranking 3rd in their division. The Atlanta Falcons were established in 1965, they have 0 Super Bowls. Some notable players include Matt Ryan, Julio Jones, Deion Sanders, Michael Vick, and Roddy White.',
+      schedule: 'https://www.atlantafalcons.com/schedule/',
+      division: 'NFC South',
+    },
     // {
     //   name: 'New Orlean Saints',
     //   conference: 'nfc',
@@ -152,15 +152,15 @@ export class Data {
     //   schedule: 'https://www.seahawks.com/schedule/',
     //   division: 'NFC West',
     // },
-    // {
-    //   name: 'Los Angeles Rams',
-    //   conference: 'nfc',
-    //   logo: 'images/rams.webp',
-    //   description:
-    //     'An NFC West team that finished the 2025 season 12-5 ranking 2nd in their division. The Los Angeles Rams were established in 1936, they have 2 Super Bowls. Some notable players include Aaron Donald, Kurt Warner, Eric Dickerson, Marshall Faulk, and Deacon Jones.',
-    //   schedule: 'https://www.rams.com/schedule/',
-    //   division: 'NFC West',
-    // },
+    {
+      name: 'Los Angeles Rams',
+      conference: 'nfc',
+      logo: 'images/rams.webp',
+      description:
+        'An NFC West team that finished the 2025 season 12-5 ranking 2nd in their division. The Los Angeles Rams were established in 1936, they have 2 Super Bowls. Some notable players include Aaron Donald, Kurt Warner, Eric Dickerson, Marshall Faulk, and Deacon Jones.',
+      schedule: 'https://www.rams.com/schedule/',
+      division: 'NFC West',
+    },
     // {
     //   name: 'San Francisco 49ers',
     //   conference: 'nfc',
@@ -325,7 +325,6 @@ export class Data {
     // },
   ];
 
-
   // getTeamsByConference(conference: string) {
   //   return this.teams.filter((t) => t.conference === conference);
   // }
@@ -333,52 +332,51 @@ export class Data {
   // getTeamByName(name: string) {
   //   return this.teams.find((t) => t.name.toLowerCase().trim().replace(/\s+/g, '-') === name);
   // }
-  
+
   async getTeams() {
     const snapshot = await getDocs(collection(db, 'teams'));
-    return snapshot.docs.map(doc => ({
+    return snapshot.docs.map((doc) => ({
       id: doc.id,
-      ...doc.data()
+      ...doc.data(),
     })) as Team[];
   }
 
-
- async getTeamById(id: string){
+  async getTeamById(id: string) {
     const docRef = doc(db, 'teams', id);
     const snap = await getDoc(docRef);
     if (!snap.exists()) return null;
     return { id: snap.id, ...snap.data() } as Team;
   }
 
-async seedData() {
-  const teamsCollection = collection(db, 'teams');
-  
-  for (const team of this.teams) {
-    try {
-      const docRef = await addDoc(teamsCollection, team);
-      console.log('Added team with ID: ', docRef.id);
-    } catch (e) {
-      console.error('Error adding team: ', e);
-    }
-  }
-  alert('All teams seeded successfully!');
-}
+  async seedData() {
+    const teamsCollection = collection(db, 'teams');
 
-async getGames() {
-  const snapshot = await getDocs(collection(db, 'games'));
-    return snapshot.docs.map(doc => ({
+    for (const team of this.teams) {
+      try {
+        const docRef = await addDoc(teamsCollection, team);
+        console.log('Added team with ID: ', docRef.id);
+      } catch (e) {
+        console.error('Error adding team: ', e);
+      }
+    }
+    alert('All teams seeded successfully!');
+  }
+
+  async getGames() {
+    const snapshot = await getDocs(collection(db, 'games'));
+    return snapshot.docs.map((doc) => ({
       id: doc.id,
-      ...doc.data()
+      ...doc.data(),
     })) as any[];
   }
   async getGameById(id: string) {
-  const snap = await getDoc(doc(db, 'games', id));
+    const snap = await getDoc(doc(db, 'games', id));
 
-  if (!snap.exists()) return null;
+    if (!snap.exists()) return null;
 
-  return {
-    id: snap.id,
-    ...snap.data()
-  } as any;
-}
+    return {
+      id: snap.id,
+      ...snap.data(),
+    } as any;
+  }
 }

@@ -1,114 +1,115 @@
 @if (game) {
-
   <div class="container mt-4 text-center text-black">
+    @if (auth.isLoggedIn()) {
+      <div class="d-flex justify-content-end mb-3">
+        <button class="btn btn-danger" (click)="deleteGame()">Delete Game</button>
+      </div>
+    }
 
-    <!-- 🏠 HOME TEAM -->
+    <!-- home team -->
     <h2 class="mb-3">{{ game.homeTeam }}</h2>
-    
 
     <table class="table table-striped-columns">
-  <thead>
-    <tr>
-      <th scope="col">Tot Yds</th>
-      <th scope="col">Ply</th>
-      <th scope="col">Y/P</th>
-      <th scope="col">Cmp</th>
-      <th scope="col">P Att</th>
-      <th scope="col">Cmp%</th>
-      <th scope="col">P Yds</th>
-      <th scope="col">P Y/A</th>
-      <th scope="col">P TD</th>
-      <th scope="col">Int</th>
-      <th scope="col">R Att</th>
-      <th scope="col">R Yds</th>
-      <th scope="col">Y/A</th>
-      <th scope="col">R TD</th>
-      
-    </tr>
-  </thead>
-  <tbody class="table-group-divider">
-    <tr>
-      <td>{{ game.htotYds }}</td>
-      <td>{{ game.hply }}</td>
-      <td>{{ (game.htotYds / game.hply) | number:'1.1-2' }}</td>
-      <td>{{ game.hcmp }}</td>
-      <td>{{ game.hpatt }}</td>
-      <td>{{ (game.hcmp / game.hpatt * 100) | number:'1.0-1' }}%</td>
-      <td>{{ game.hpyds }}</td>
-      <td>{{ (game.hpyds / game.hpatt) | number:'1.1-2' }}</td>
-      <td>{{ game.hptds }}</td>
-      <td>{{ game.hint }}</td>
-      <td>{{ game.hratt }}</td>
-      <td>{{ game.hryds }}</td>
-      <td>{{ (game.hryds / game.hratt) | number: '1.1-2' }}</td>
-      <td>{{ game.hrtds }}</td>
-      
-    </tr>
-  </tbody>
-</table>
+      <thead>
+        <tr>
+          <th scope="col">Tot Yds</th>
+          <th scope="col">Ply</th>
+          <th scope="col">Y/P</th>
+          <th scope="col">Cmp</th>
+          <th scope="col">P Att</th>
+          <th scope="col">Cmp%</th>
+          <th scope="col">P Yds</th>
+          <th scope="col">P Y/A</th>
+          <th scope="col">P TD</th>
+          <th scope="col">Int</th>
+          <th scope="col">R Att</th>
+          <th scope="col">R Yds</th>
+          <th scope="col">Y/A</th>
+          <th scope="col">R TD</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr>
+          <td>{{ game.htotYds }}</td>
+          <td>{{ game.hply }}</td>
+          <td>{{ game.htotYds / game.hply | number: '1.1-2' }}</td>
+          <td>{{ game.hcmp }}</td>
+          <td>{{ game.hpatt }}</td>
+          <td>{{ (game.hcmp / game.hpatt) * 100 | number: '1.0-1' }}%</td>
+          <td>{{ game.hpyds }}</td>
+          <td>{{ game.hpyds / game.hpatt | number: '1.1-2' }}</td>
+          <td>{{ game.hptds }}</td>
+          <td>{{ game.hint }}</td>
+          <td>{{ game.hratt }}</td>
+          <td>{{ game.hryds }}</td>
+          <td>{{ game.hryds / game.hratt | number: '1.1-2' }}</td>
+          <td>{{ game.hrtds }}</td>
+        </tr>
+      </tbody>
+    </table>
 
-    
     <div class="my-5">
       <h1 class="display-1 fw-bold">
-        <img [src]="game.homeTeamLogo" alt="{{ game.homeTeam }}" style="width: 60px; height: 60px;" class="me-3">{{ game.homeScore }} - {{ game.awayScore }} <img [src]="game.awayTeamLogo" alt="{{ game.awayTeam }}" style="width: 60px; height: 60px;">
+        <img
+          [src]="game.homeTeamLogo"
+          alt="{{ game.homeTeam }}"
+          style="width: 60px; height: 60px"
+          class="me-3"
+        />
+        {{ game.homeScore }} - {{ game.awayScore }}
+        <img
+          [src]="game.awayTeamLogo"
+          alt="{{ game.awayTeam }}"
+          style="width: 60px; height: 60px"
+        />
       </h1>
-
-      <p class="text-muted">
-        {{ game.gameDate }}
-      </p>
+      <p class="text-muted">{{ game.gameDate }}</p>
     </div>
 
-   
+    <!-- away team -->
     <h2 class="mb-3">{{ game.awayTeam }}</h2>
-    
 
     <table class="table table-striped-columns">
-  <thead>
-    <tr>
-      <th scope="col">Tot Yds</th>
-      <th scope="col">Ply</th>
-      <th scope="col">Y/P</th>
-      <th scope="col">Cmp</th>
-      <th scope="col">P Att</th>
-      <th scope="col">Cmp%</th>
-      <th scope="col">P Yds</th>
-      <th scope="col">P Y/A</th>
-      <th scope="col">P TD</th>
-      <th scope="col">Int</th>
-      <th scope="col">R Att</th>
-      <th scope="col">R Yds</th>
-      <th scope="col">Y/A</th>
-      <th scope="col">R TD</th>
-      
-    </tr>
-  </thead>
-  <tbody class="table-group-divider">
-    <tr>
-      <td>{{ game.atotYds }}</td>
-      <td>{{ game.aply }}</td>
-      <td>{{ (game.atotYds / game.aply) | number:'1.1-2' }}</td>
-      <td>{{ game.acmp }}</td>
-      <td>{{ game.apatt }}</td>
-      <td>{{ (game.acmp / game.apatt * 100) | number:'1.0-1' }}%</td>
-      <td>{{ game.apyds }}</td>
-      <td>{{ (game.apyds / game.apatt) | number:'1.1-2' }}</td>
-      <td>{{ game.aptds }}</td>
-      <td>{{ game.aint }}</td>
-      <td>{{ game.aratt }}</td>
-      <td>{{ game.aryds }}</td>
-      <td>{{ (game.aryds / game.aratt) | number: '1.1-2' }}</td>
-      <td>{{ game.artds }}</td>
-      
-    </tr>
-  </tbody>
-</table>
-
+      <thead>
+        <tr>
+          <th scope="col">Tot Yds</th>
+          <th scope="col">Ply</th>
+          <th scope="col">Y/P</th>
+          <th scope="col">Cmp</th>
+          <th scope="col">P Att</th>
+          <th scope="col">Cmp%</th>
+          <th scope="col">P Yds</th>
+          <th scope="col">P Y/A</th>
+          <th scope="col">P TD</th>
+          <th scope="col">Int</th>
+          <th scope="col">R Att</th>
+          <th scope="col">R Yds</th>
+          <th scope="col">Y/A</th>
+          <th scope="col">R TD</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr>
+          <td>{{ game.atotYds }}</td>
+          <td>{{ game.aply }}</td>
+          <td>{{ game.atotYds / game.aply | number: '1.1-2' }}</td>
+          <td>{{ game.acmp }}</td>
+          <td>{{ game.apatt }}</td>
+          <td>{{ (game.acmp / game.apatt) * 100 | number: '1.0-1' }}%</td>
+          <td>{{ game.apyds }}</td>
+          <td>{{ game.apyds / game.apatt | number: '1.1-2' }}</td>
+          <td>{{ game.aptds }}</td>
+          <td>{{ game.aint }}</td>
+          <td>{{ game.aratt }}</td>
+          <td>{{ game.aryds }}</td>
+          <td>{{ game.aryds / game.aratt | number: '1.1-2' }}</td>
+          <td>{{ game.artds }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
 } @else {
-
   <div class="text-center mt-4">
     <h3>Game not found</h3>
   </div>
-
 }

@@ -1,30 +1,35 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid d-flex justify-content-between align-items-center">
-
     <button class="navbar-toggler" (click)="toggleMenu()">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <span class="navbar-brand mx-auto" style="font-size: 2rem; font-weight: 600;">Downfield Data</span>
+    <span class="navbar-brand mx-auto" style="font-size: 2rem; font-weight: 600"
+      >Downfield Data</span
+    >
 
+    @if (auth.isLoggedIn()) {
+      <a routerLink="/admin" class="btn btn-primary btn-sm">Admin</a>
+    } @else {
+      <a routerLink="/login" class="btn btn-primary btn-sm">Login</a>
+    }
   </div>
 </nav>
 
-
 @if (isOpen) {
-<div class="bg-dark">
-  <div class="p-4">
-    <ul class="navbar-nav">
+  <div class="bg-dark">
+    <div class="p-4">
+      <ul class="navbar-nav">
         <li>
-            <a class="nav-link text-white" routerLink="/" (click)="toggleMenu()">Home</a>
+          <a class="nav-link text-white" routerLink="/" (click)="toggleMenu()">Home</a>
         </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/games" (click)="toggleMenu()">Games</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/teams" (click)="toggleMenu()">Teams</a>
-      </li>
-    </ul>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/games" (click)="toggleMenu()">Games</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/teams" (click)="toggleMenu()">Teams</a>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 }

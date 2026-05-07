@@ -1,0 +1,12 @@
+<div class="container mt-5">
+  <h1 class="mb-4">Admin Dashboard</h1>
+
+  <div class="list-group" style="max-width: 400px">
+    <a routerLink="/games" class="list-group-item list-group-item-action"> Go to Game List </a>
+    <a routerLink="/admin/create-game" class="list-group-item list-group-item-action">
+      Create New Game
+    </a>
+  </div>
+
+  <button class="btn btn-outline-danger mt-4" (click)="auth.logout()">Logout</button>
+</div>
